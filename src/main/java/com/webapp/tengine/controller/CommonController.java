@@ -17,4 +17,10 @@ public class CommonController {
         log.info("Inside test controller");
         return ResponseEntity.ok().body(Map.of("message", "Working!!!"));
     }
+
+    @GetMapping("/buildtest")
+    public ResponseEntity<?> buildtest() {
+        log.info("Inside build test controller ==> Buildtest method()");
+        return ResponseEntity.ok().body(Map.of("message", "Build Working!!!"));
+    }
 }

@@ -1,6 +1,6 @@
-FROM bellsoft/liberica-native-image-kit-container:jdk-24-nik-24
+FROM bellsoft/liberica-native-image-kit-container:jdk-24-nik-24-musl
 
-RUN apk add entr
+RUN apk update && apk search entr
 
 WORKDIR /app
 ADD BOOT-INF/lib /app/lib
