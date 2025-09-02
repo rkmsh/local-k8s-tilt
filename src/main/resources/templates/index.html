@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div class="">
+    <div >
+        <div>
+            <nav class="bg-blue-400 p-4 text-white">
+                <div class="container mx-auto flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <a href="" class="font-medium">Home</a>
+                        <a href="" class="font-medium">About</a>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="">Login</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="bg-gray-100 flex items-center justify-center h-screen">
+
+        <div class="w-full max-w-sm bg-white p-6 rounded shadow-md">
+            <h2 class="text-2xl font-bold text-center mb-6">Login</h2>
+
+            <!-- HTMX login form -->
+            <form
+                    th:action="@{/login}"
+                    method="post"
+                    hx-post="@{/login}"
+                    hx-target="#login-message"
+                    hx-swap="innerHTML"
+                    class="space-y-4"
+            >
+                <div>
+                    <label for="username" class="block text-gray-700 font-medium">Username</label>
+                    <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            required
+                            class="mt-1 block w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
+                <div>
+                    <label for="password" class="block text-gray-700 font-medium">Password</label>
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                            class="mt-1 block w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
+                <button
+                        type="submit"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                    Login
+                </button>
+            </form>
+
+            <!-- Message container -->
+            <div id="login-message" class="mt-4 text-center text-red-500"></div>
+        </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

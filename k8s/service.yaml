@@ -1,0 +1,14 @@
+# my-app-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: tengine-service
+spec:
+  selector:
+    app: tengine
+  ports:
+    - protocol: TCP
+      port: 80 # The port the service exposes
+      targetPort: 8080 # The port your application container listens on
+  type: NodePort
+

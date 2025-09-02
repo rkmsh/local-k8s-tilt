@@ -1,0 +1,29 @@
+# my-app-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tengine-deployment
+  labels:
+    app: tengine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tengine
+  template:
+    metadata:
+      labels:
+        app: tengine
+    spec:
+      containers:
+      - name: tengine
+        # Use the correct image path for the Kind registry
+        image: 172.17.0.2:5000/tengine:0.0.1
+        # The imagePullPolicy is crucial for insecure registries.
+        # Kind's containerd runtime is configured to access the internal
+        # registry, but the image pull must be handled carefully.
+        imagePullPolicy: IfNotPresent
+      # This service account ensures the Pod has the necessary permissions.
+      # It's especially useful in multi-node Kind clusters.
+      serviceAccountName: default
+
