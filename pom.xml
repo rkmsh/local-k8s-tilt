@@ -75,11 +75,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<image>
-						<env>
-							<BP_JVM_VERSION>24</BP_JVM_VERSION> <!-- locks JVM version -->
-						</env>
-					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

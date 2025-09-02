@@ -5,7 +5,7 @@ if os.name == "nt":
   mvnw = "mvnw.bat"
 
 local_resource(
-  'example-java-compile',
+  'tengine',
   mvnw + ' package && ' +
   'rm -rf target/jar-staging && ' +
   'unzip -o target/tengine-0.0.1-SNAPSHOT.jar -d target/jar-staging && ' +
